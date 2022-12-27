@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--img",
+                "640",
+                "--batch",
+                "16",
+                "--epochs",
+                "20",
+                "--data",
+                "HW1_dataset.yaml",
+                "--weights",
+                "yolov5m.pt",
+                "--optimizer",
+                "Adam",
+                "--my_lr0",
+                "0.01"
+            ]
+        }
+    ]
+}
