@@ -168,23 +168,23 @@ def add_multiple_labels(img,
 
 def main(vid_path):
     print(vid_path)
-    true_labels_right = []
-    true_labels_left = []
-    with open(f"/home/student/HW1/datasets/HW1_dataset/tool_usage/tools_left/{vid_path[:-4].split('/')[-1]}.txt") as f:
-        for line in f.readlines():
-            start, fin, lab = line.split()
-            lab = int(lab[-1])
-            start, fin = int(start), int(fin)
-            true_labels_left.extend([lab]*(fin - start + 1))
+    #true_labels_right = []
+    #true_labels_left = []
+    #with open(f"/home/student/HW1/datasets/HW1_dataset/tool_usage/tools_left/{vid_path[:-4].split('/')[-1]}.txt") as f:
+    #    for line in f.readlines():
+    #        start, fin, lab = line.split()
+    #        lab = int(lab[-1])
+    #        start, fin = int(start), int(fin)
+    #        true_labels_left.extend([lab]*(fin - start + 1))
 
-    with open(f"/home/student/HW1/datasets/HW1_dataset/tool_usage/tools_right/{vid_path[:-4].split('/')[-1]}.txt") as f:
-        for line in f.readlines():
-            start, fin, lab = line.split()
-            lab = int(lab[-1])
-            start, fin = int(start), int(fin)
-            true_labels_right.extend([lab]*(fin - start + 1))
+    #with open(f"/home/student/HW1/datasets/HW1_dataset/tool_usage/tools_right/{vid_path[:-4].split('/')[-1]}.txt") as f:
+    #    for line in f.readlines():
+    #        start, fin, lab = line.split()
+    #        lab = int(lab[-1])
+    #        start, fin = int(start), int(fin)
+    #        true_labels_right.extend([lab]*(fin - start + 1))
 
-    model = torch.hub.load('yolov5', 'custom', path=fr"/home/student/HW1/yolov5/runs/train/exp8/weights/best.pt", source='local') 
+    model = torch.hub.load('our_yolov5', 'custom', path=fr"best.pt", source='local') 
     model = model.to(device)
     model.eval()
 
@@ -193,8 +193,8 @@ def main(vid_path):
     right_labels_smooth = label_smoothing(right_labels)
     out_path = vid_path[:-4].split('/')[-1]+"_pred.mp4"
     save_vid(model, vid_path, out_path, left_labels_smooth, right_labels_smooth, cutoff=None)
-    with open(vid_path[:-4].split('/')[-1]+ "_lists", "wb") as fp:
-        pickle.dump([left_labels_smooth, right_labels_smooth], fp)
+    #with open(vid_path[:-4].split('/')[-1]+ "_lists", "wb") as fp:
+    #    pickle.dump([left_labels_smooth, right_labels_smooth], fp)
 
     1 == 1
    
