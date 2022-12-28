@@ -5,3 +5,12 @@ HW1/P023_tissue2_lists
 HW1/P024_balloon1_lists
 HW1/P025_tissue2_lists
 HW1/P026_tissue1_lists
+yolov5/
+HW1/hw1_reg.py
+HW1/dataset.yaml
+HW1/hw1_yolo.py
+HW1/labels
+test.jpg
+preds
+P023_tissue2_pred.mp4
+P026_tissue1_pred.mp4
